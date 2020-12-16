@@ -27,7 +27,7 @@ password: string
 
 ```
 
-// Registration (POST):  /api/auth/registration
+// Registration (POST):  /api/auth/register
 
 Required Fields:
 
