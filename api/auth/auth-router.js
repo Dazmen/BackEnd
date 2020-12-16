@@ -2,7 +2,8 @@ const express = require("express");
 const users = require('../auth/users/user-model');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-
+const generateTkn = require('../../config/token');
+const generateToken = require("../../config/token");
 
 router.post('/register', async (req, res) => {
 
@@ -27,9 +28,11 @@ router.post('/login', async (req, res) => {
         const user = await users.findBy({ username }).first();
     
         if (user && bcrypt.compareSync(password, user.password)) {
-         
+         const token = generateToken(user);
+
+
             req.session.user = user;
-            res.status(200).json({ message: `Welcome ${user.username}!`, });
+            res.status(200).json({ message: `Welcome ${user.username}!`, token});
         } else {
        
             res.status(401).json({ message: 'invalid credentials' });
