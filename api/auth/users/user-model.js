@@ -11,13 +11,15 @@ module.exports = {
 }
 
 
-async function find() {
-    try {
-        return await db('users');
-    } catch (err) {
-        throw err;
-    }
-}
+ function find() {
+    return db("users").select("id", "username").orderBy("id");
+  }
+
+
+function findBy(filter) {
+    return db("users").where(filter).orderBy("id");
+  }
+
 
 async function findById(id) {
     try {
@@ -30,34 +32,30 @@ async function findById(id) {
 
 
 
-async function findBy(filter) {
-    return db("users").where(filter).orderBy("id");
-  }
-
-
 async function findRecipe(id) {
     try {
-        const article = await
+        const recipe = await
             db('recipe-update as r')
                 .join('users as u', 'u.id', 'r.user_id')
                 .where({ user_id: id })
                 .select('r.id', 'u.username', 'r.title', 'r.ingredients', 'r.instructions', 'r.tags');
 
-        return article;
+        return recipe;
     } catch (err) {
         throw err;
     }
 }
 
-async function add(userData) {
-    try {
-        const ids = await db('users').insert(userData);
-        const newUser = await findById(ids[0]);
-        return newUser;
-    } catch (err) {
-        throw err;
-    }
+async function add(user) {
+  try {
+    const [id] = await db("users").insert(user, "id");
+
+    return findById(id);
+  } catch (error) {
+    throw error;
+  }
 }
+
 
 async function update(id, changes) {
     try {

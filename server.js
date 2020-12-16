@@ -27,8 +27,7 @@ server.use(session(sessionConfig));
 server.use(cors());
 
 
-server.use('/api', UserRouter);
-server.use('/api', AuthRouter);
+server.use('/api', ApiRouter);
 
 
 
