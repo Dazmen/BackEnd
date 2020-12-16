@@ -2,7 +2,7 @@ const express = require("express");
 const helmet = require('helmet');
 const session = require('express-session');
 
-const UserRouter = require('./api/auth/users/user-router');
+const ApiRouter = require('./api/routes/apiRoutes');
 
 const server = express();
 
@@ -23,6 +23,9 @@ const sessionConfig = {
 server.use(helmet());
 server.use(express.json());
 server.use(session(sessionConfig));
+
+
+server.use('/api', UserRouter);
 
 
 
