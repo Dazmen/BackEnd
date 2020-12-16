@@ -1,0 +1,29 @@
+{
+  "name": "BackEnd",
+  "version": "1.0.0",
+  "description": "Repository for Project's Back End",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BWPT-Secret-Family-Recipes/BackEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BWPT-Secret-Family-Recipes/BackEnd/issues"
+  },
+  "homepage": "https://github.com/BWPT-Secret-Family-Recipes/BackEnd#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "helmet": "^4.2.0",
+    "knex": "^0.21.13",
+    "nodemon": "^2.0.6",
+    "sqlite3": "^5.0.0"
+  }
+}
