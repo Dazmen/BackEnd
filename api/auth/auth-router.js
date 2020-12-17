@@ -2,7 +2,6 @@ const express = require("express");
 const users = require('../auth/users/user-model');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const generateTkn = require('../../config/token');
 const generateToken = require("../../config/token");
 
 router.post('/register', async (req, res) => {
