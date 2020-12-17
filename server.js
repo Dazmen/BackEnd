@@ -16,7 +16,7 @@ const sessionConfig = {
     secret: 'asifIdtellyouthesecretsauce',
     cookie: {
       maxAge: 1000 * 60 * 60,
-      secure: true, 
+      secure: false, 
       httpOnly: true
     },
     resave: false,
