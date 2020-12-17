@@ -4,7 +4,7 @@
   "description": "Repository for Project's Back End",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
+    "server": "nodemon",
     "start": "node index.js"
   },
   "repository": {
